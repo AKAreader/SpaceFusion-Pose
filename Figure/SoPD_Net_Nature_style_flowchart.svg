@@ -1,0 +1,220 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1160" viewBox="0 0 1800 1160">
+  <defs>
+    <style>
+      .title { font-family: Arial, Helvetica, sans-serif; font-size: 30px; font-weight: 700; fill: #1F2933; }
+      .panel-label { font-family: Arial, Helvetica, sans-serif; font-size: 30px; font-weight: 700; fill: #1F2933; }
+      .section-title { font-family: Arial, Helvetica, sans-serif; font-size: 23px; font-weight: 700; fill: #1F2933; }
+      .body { font-family: Arial, Helvetica, sans-serif; font-size: 20px; font-weight: 400; fill: #1F2933; }
+      .small { font-family: Arial, Helvetica, sans-serif; font-size: 17px; font-weight: 400; fill: #52606D; }
+      .math { font-family: Georgia, 'Times New Roman', serif; font-size: 20px; font-style: italic; fill: #1F2933; }
+      .math-small { font-family: Georgia, 'Times New Roman', serif; font-size: 18px; font-style: italic; fill: #1F2933; }
+      .box { fill: #FFFFFF; stroke: #9AA5B1; stroke-width: 2; rx: 7; ry: 7; }
+      .box-blue { fill: #F5F8FC; stroke: #3B6FB6; stroke-width: 2.2; rx: 7; ry: 7; }
+      .box-orange { fill: #FDF8F2; stroke: #D9822B; stroke-width: 2.2; rx: 7; ry: 7; }
+      .box-teal { fill: #F3F9F9; stroke: #2B8C8E; stroke-width: 2.2; rx: 7; ry: 7; }
+      .box-gray { fill: #F7F8FA; stroke: #7B8794; stroke-width: 2; rx: 7; ry: 7; }
+      .box-training { fill: #FBFAF7; stroke: #A87935; stroke-width: 2; rx: 7; ry: 7; }
+      .panel { fill: none; stroke: #CBD2D9; stroke-width: 1.8; rx: 10; ry: 10; }
+      .line { fill: none; stroke: #344050; stroke-width: 2.4; marker-end: url(#arrow-dark); }
+      .line-blue { fill: none; stroke: #3B6FB6; stroke-width: 2.6; marker-end: url(#arrow-blue); }
+      .line-orange { fill: none; stroke: #D9822B; stroke-width: 2.6; marker-end: url(#arrow-orange); }
+      .line-gray { fill: none; stroke: #7B8794; stroke-width: 2.4; marker-end: url(#arrow-gray); }
+      .line-train { fill: none; stroke: #A87935; stroke-width: 2.3; stroke-dasharray: 8 7; marker-end: url(#arrow-train); }
+      .line-train-noarrow { fill: none; stroke: #A87935; stroke-width: 2.3; stroke-dasharray: 8 7; }
+      .line-inset { fill: none; stroke: #52606D; stroke-width: 2.1; marker-end: url(#arrow-dark); }
+    </style>
+    <marker id="arrow-dark" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3.5 L0,7 Z" fill="#344050"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3.5 L0,7 Z" fill="#3B6FB6"/>
+    </marker>
+    <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3.5 L0,7 Z" fill="#D9822B"/>
+    </marker>
+    <marker id="arrow-gray" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3.5 L0,7 Z" fill="#7B8794"/>
+    </marker>
+    <marker id="arrow-train" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3.5 L0,7 Z" fill="#A87935"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1800" height="1160" fill="#FFFFFF"/>
+
+  <!-- Panel a: inference architecture -->
+  <rect class="panel" x="34" y="36" width="1732" height="580"/>
+  <text class="panel-label" x="56" y="78">a</text>
+  <text class="title" x="106" y="78">SoPD-Net inference architecture</text>
+
+  <!-- Inputs -->
+  <rect class="box-blue" x="72" y="145" width="180" height="82"/>
+  <text class="section-title" x="162" y="177" text-anchor="middle">Visible RGB</text>
+  <text class="math" x="162" y="207" text-anchor="middle">I<tspan baseline-shift="sub" font-size="15">vis</tspan></text>
+
+  <rect class="box-orange" x="72" y="360" width="180" height="82"/>
+  <text class="section-title" x="162" y="392" text-anchor="middle">Infrared</text>
+  <text class="math" x="162" y="422" text-anchor="middle">I<tspan baseline-shift="sub" font-size="15">ir</tspan></text>
+
+  <!-- Luminance-chroma decomposition -->
+  <rect class="box-blue" x="310" y="130" width="236" height="112"/>
+  <text class="section-title" x="428" y="164" text-anchor="middle">RGB to YCbCr</text>
+  <text class="small" x="428" y="194" text-anchor="middle">Luminance-chroma</text>
+  <text class="small" x="428" y="217" text-anchor="middle">decomposition</text>
+  <path class="line-blue" d="M252 186 L310 186"/>
+
+  <text class="math" x="578" y="170">Y</text>
+  <path class="line-blue" d="M546 174 L635 174"/>
+
+  <!-- Dual-stream fusion backbone -->
+  <rect class="box-teal" x="635" y="115" width="350" height="310"/>
+  <text class="section-title" x="810" y="153" text-anchor="middle">Dual-stream fusion backbone</text>
+  <text class="small" x="810" y="181" text-anchor="middle">Two RGBD blocks per stream</text>
+
+  <rect class="box-blue" x="691" y="216" width="168" height="56"/>
+  <text class="body" x="775" y="250" text-anchor="middle">Y stream</text>
+  <rect class="box-orange" x="691" y="314" width="168" height="56"/>
+  <text class="body" x="775" y="348" text-anchor="middle">IR stream</text>
+  <path class="line-blue" d="M635 174 L665 174 L665 244 L691 244"/>
+  <path class="line-orange" d="M252 401 L610 401 L610 342 L691 342"/>
+
+  <rect class="box-gray" x="888" y="234" width="73" height="118"/>
+  <text class="body" x="925" y="273" text-anchor="middle">Concat.</text>
+  <text class="small" x="925" y="301" text-anchor="middle">+</text>
+  <text class="body" x="925" y="330" text-anchor="middle">decoder</text>
+  <path class="line-blue" d="M859 244 L888 263"/>
+  <path class="line-orange" d="M859 342 L888 323"/>
+
+  <text class="math" x="1010" y="285">F<tspan baseline-shift="sub" font-size="15">base</tspan></text>
+  <path class="line" d="M961 293 L1052 293"/>
+
+  <!-- Trust-guided fallback fusion -->
+  <rect class="box-teal" x="1052" y="100" width="438" height="400"/>
+  <text class="section-title" x="1271" y="138" text-anchor="middle">Trust-guided fallback fusion</text>
+
+  <rect class="box-gray" x="1090" y="181" width="166" height="70"/>
+  <text class="body" x="1173" y="209" text-anchor="middle">Pixel-wise max</text>
+  <text class="math-small" x="1173" y="235" text-anchor="middle">M = max(Y, I<tspan baseline-shift="sub" font-size="13">ir</tspan>)</text>
+
+  <rect class="box-gray" x="1090" y="311" width="230" height="92"/>
+  <text class="body" x="1205" y="341" text-anchor="middle">GateNet</text>
+  <text class="math-small" x="1205" y="370" text-anchor="middle">[Y, I<tspan baseline-shift="sub" font-size="13">ir</tspan>, F<tspan baseline-shift="sub" font-size="13">base</tspan>, |Y - I<tspan baseline-shift="sub" font-size="13">ir</tspan>|]</text>
+  <text class="math-small" x="1205" y="394" text-anchor="middle">to g</text>
+
+  <rect class="box-teal" x="1360" y="238" width="98" height="100"/>
+  <text class="body" x="1409" y="278" text-anchor="middle">Blend</text>
+  <text class="math-small" x="1409" y="309" text-anchor="middle">Y-hat</text>
+
+  <path class="line" d="M1052 293 L1068 293 L1068 160 L1409 160 L1409 238"/>
+  <path class="line" d="M1052 293 L1076 293 L1076 331 L1090 331"/>
+  <path class="line" d="M1256 216 L1331 216 L1331 267 L1360 267"/>
+  <path class="line" d="M1320 357 L1338 357 L1338 309 L1360 309"/>
+
+  <text class="math-small" x="1271" y="458" text-anchor="middle">&#374; = g &#8857; F<tspan baseline-shift="sub" font-size="13">base</tspan> + (1 - g) &#8857; M</text>
+
+  <!-- Reconstruction -->
+  <rect class="box-blue" x="1534" y="174" width="188" height="154"/>
+  <text class="section-title" x="1628" y="208" text-anchor="middle">Reconstruction</text>
+  <text class="small" x="1628" y="240" text-anchor="middle">Compose Y-hat with</text>
+  <text class="small" x="1628" y="264" text-anchor="middle">visible-light Cb, Cr</text>
+  <text class="small" x="1628" y="300" text-anchor="middle">YCbCr to RGB</text>
+  <path class="line-blue" d="M1458 288 L1534 288"/>
+
+  <rect class="box-blue" x="1534" y="390" width="188" height="76"/>
+  <text class="section-title" x="1628" y="421" text-anchor="middle">Fused RGB</text>
+  <text class="math" x="1628" y="450" text-anchor="middle">I<tspan baseline-shift="sub" font-size="15">fused</tspan></text>
+  <path class="line-blue" d="M1628 328 L1628 390"/>
+
+  <!-- Cb Cr bypass -->
+  <path class="line-gray" d="M546 208 L584 208 L584 536 L1508 536 L1508 250 L1534 250"/>
+  <text class="small" x="653" y="525">Cb, Cr bypass from visible image</text>
+
+  <!-- Compact input-cue labels avoid visually dense cross-panel wiring. -->
+  <text class="small" x="1066" y="193">Y, IR</text>
+  <path class="line-gray" d="M1058 216 L1090 216"/>
+  <text class="small" x="1061" y="398">input cues</text>
+  <path class="line-gray" d="M1058 382 L1090 382"/>
+
+  <!-- Panel b: training-only objectives -->
+  <rect class="panel" x="34" y="646" width="1220" height="466"/>
+  <text class="panel-label" x="56" y="688">b</text>
+  <text class="title" x="106" y="688">Training-only objectives</text>
+  <text class="small" x="106" y="718">Dashed connectors indicate supervision used only during optimization.</text>
+
+  <rect class="box-training" x="92" y="765" width="264" height="148"/>
+  <text class="section-title" x="224" y="801" text-anchor="middle">Saliency weighting</text>
+  <text class="small" x="224" y="833" text-anchor="middle">Sobel(Y), Sobel(IR)</text>
+  <text class="small" x="224" y="858" text-anchor="middle">to structure-aware weights</text>
+  <text class="math-small" x="224" y="884" text-anchor="middle">L<tspan baseline-shift="sub" font-size="13">fus</tspan><tspan font-style="normal">: intensity + gradient</tspan></text>
+  <text class="small" x="224" y="906" text-anchor="middle">also supervises Fbase</text>
+
+  <rect class="box-training" x="389" y="765" width="214" height="148"/>
+  <text class="section-title" x="496" y="801" text-anchor="middle">SSIM term</text>
+  <text class="small" x="496" y="838" text-anchor="middle">Structural similarity to</text>
+  <text class="small" x="496" y="863" text-anchor="middle">Y and IR inputs</text>
+  <text class="math-small" x="496" y="893" text-anchor="middle">L<tspan baseline-shift="sub" font-size="13">SSIM</tspan></text>
+
+  <rect class="box-training" x="636" y="765" width="214" height="148"/>
+  <text class="section-title" x="743" y="801" text-anchor="middle">Gate smoothness</text>
+  <text class="small" x="743" y="838" text-anchor="middle">Spatial regularization</text>
+  <text class="small" x="743" y="863" text-anchor="middle">of the trust map g</text>
+  <text class="math-small" x="743" y="893" text-anchor="middle">L<tspan baseline-shift="sub" font-size="13">TV</tspan>(g)</text>
+
+  <rect class="box-training" x="883" y="765" width="309" height="148"/>
+  <text class="section-title" x="1038" y="801" text-anchor="middle">Pose-guided learning</text>
+  <text class="small" x="1038" y="833" text-anchor="middle">Fused RGB to CA pose head</text>
+  <text class="small" x="1038" y="858" text-anchor="middle">Quaternion prediction q&#770;</text>
+  <text class="math-small" x="1038" y="890" text-anchor="middle">L<tspan baseline-shift="sub" font-size="13">pose</tspan>(q&#770;, q<tspan baseline-shift="sub" font-size="13">gt</tspan>)</text>
+
+  <rect class="box-gray" x="287" y="973" width="672" height="88"/>
+  <text class="section-title" x="623" y="1008" text-anchor="middle">Optimization objective</text>
+  <text class="math-small" x="623" y="1040" text-anchor="middle">L = L<tspan baseline-shift="sub" font-size="13">fus</tspan> + &#955;<tspan baseline-shift="sub" font-size="13">aux</tspan>L<tspan baseline-shift="sub" font-size="13">base</tspan> + &#955;<tspan baseline-shift="sub" font-size="13">TV</tspan>L<tspan baseline-shift="sub" font-size="13">TV</tspan> + &#955;<tspan baseline-shift="sub" font-size="13">SSIM</tspan>L<tspan baseline-shift="sub" font-size="13">SSIM</tspan> + &#955;<tspan baseline-shift="sub" font-size="13">pose</tspan>L<tspan baseline-shift="sub" font-size="13">pose</tspan></text>
+
+  <!-- dashed training connectors -->
+  <path class="line-train" d="M1425 338 L1425 594 L224 594 L224 765"/>
+  <path class="line-train" d="M1450 338 L1450 626 L496 626 L496 765"/>
+  <path class="line-train" d="M1306 374 L1340 374 L1340 610 L743 610 L743 765"/>
+  <path class="line-train" d="M1628 466 L1628 730 L1038 730 L1038 765"/>
+
+  <path class="line-train" d="M224 913 L224 946 L401 946 L401 973"/>
+  <path class="line-train" d="M496 913 L496 973"/>
+  <path class="line-train" d="M743 913 L743 973"/>
+  <path class="line-train" d="M1038 913 L1038 946 L846 946 L846 973"/>
+
+  <!-- Panel c: RGBD block inset -->
+  <rect class="panel" x="1288" y="646" width="478" height="466"/>
+  <text class="panel-label" x="1310" y="688">c</text>
+  <text class="title" x="1360" y="688">RGBD block</text>
+  <text class="small" x="1360" y="718">Repeated twice in each backbone stream</text>
+
+  <rect class="box-gray" x="1338" y="787" width="98" height="60"/>
+  <text class="body" x="1387" y="824" text-anchor="middle">Input</text>
+
+  <rect class="box-blue" x="1492" y="755" width="202" height="82"/>
+  <text class="body" x="1593" y="787" text-anchor="middle">Dense feature branch</text>
+  <text class="small" x="1593" y="815" text-anchor="middle">Conv + concatenation</text>
+
+  <rect class="box-orange" x="1492" y="880" width="202" height="82"/>
+  <text class="body" x="1593" y="912" text-anchor="middle">Sobel edge branch</text>
+  <text class="small" x="1593" y="940" text-anchor="middle">Gradient enhancement</text>
+
+  <circle cx="1720" cy="858" r="24" fill="#FFFFFF" stroke="#52606D" stroke-width="2"/>
+  <text class="section-title" x="1720" y="866" text-anchor="middle">+</text>
+
+  <path class="line-inset" d="M1436 817 L1462 817 L1462 796 L1492 796"/>
+  <path class="line-inset" d="M1436 817 L1462 817 L1462 921 L1492 921"/>
+  <path class="line-inset" d="M1694 796 L1720 796 L1720 834"/>
+  <path class="line-inset" d="M1694 921 L1720 921 L1720 882"/>
+  <path class="line-inset" d="M1744 858 L1760 858"/>
+
+  <text class="small" x="1338" y="1044">Feature preservation</text>
+  <text class="small" x="1338" y="1071">plus explicit edge cues</text>
+
+  <!-- Legend -->
+  <path class="line" d="M76 1137 L142 1137"/>
+  <text class="small" x="158" y="1143">Inference path</text>
+  <path class="line-train" d="M315 1137 L381 1137"/>
+  <text class="small" x="397" y="1143">Training-only supervision</text>
+  <path class="line-gray" d="M663 1137 L729 1137"/>
+  <text class="small" x="745" y="1143">Visible-light chroma bypass</text>
+</svg>

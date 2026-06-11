@@ -1,0 +1,55 @@
+# make_unified_id_excel.py
+# -*- coding: utf-8 -*-
+"""
+给只有“帧索引”的Excel补一列 Unified_ID（0001/0002/...），用于与图片名对齐。
+输入：E:\Test\Aqua_轨道倾斜45.0度.xlsx
+输出：同目录生成 *_with_unified_id.xlsx
+"""
+
+import os
+import re
+import pandas as pd
+
+
+def find_col(cols, candidates):
+    norm = lambda s: re.sub(r"\s+", "", str(s)).lower()
+    cols_norm = [norm(c) for c in cols]
+    cand_norm = [norm(c) for c in candidates]
+    for cc in cand_norm:
+        for i, cn in enumerate(cols_norm):
+            if cn == cc:
+                return cols[i]
+    for cc in cand_norm:
+        for i, cn in enumerate(cols_norm):
+            if cc in cn:
+                return cols[i]
+    return None
+
+
+def main():
+    xlsx = r"E:\Test\Aqua_with_unified_id.xlsx"  # 改成你的实际文件
+    out_xlsx = os.path.splitext(xlsx)[0] + "_with_unified_id.xlsx"
+
+    df = pd.read_excel(xlsx)
+    cols = list(df.columns)
+
+    frame_col = find_col(cols, ["帧索引", "帧", "frame", "Frame", "index", "Index"])
+    if frame_col is None:
+        raise RuntimeError(f"未找到帧索引列。当前列名: {cols}")
+
+    # 转数字再补零
+    frame = pd.to_numeric(df[frame_col], errors="coerce")
+    df = df.loc[~frame.isna()].copy()
+    frame = frame.astype(int)
+
+    df["Unified_ID"] = frame.map(lambda x: str(x).zfill(4))
+    # 同时给一个兼容列名（可选）
+    df["pair_id"] = df["Unified_ID"]
+
+    df.to_excel(out_xlsx, index=False)
+    print("[OK] Saved:", out_xlsx)
+    print("Columns now:", list(df.columns))
+
+
+if __name__ == "__main__":
+    main()
