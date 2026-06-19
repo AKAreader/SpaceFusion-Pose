@@ -1,0 +1,60 @@
+name: Bug report
+description: Report a reproducible bug in code, documentation, configuration, or tooling.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug description
+      description: Describe the issue clearly.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Include OS, Python version, PyTorch version if relevant, GPU if relevant, and package notes.
+      placeholder: "Windows, Python 3.8, PyTorch version, CUDA version, GPU"
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: Command
+      description: Paste the command or script entry point that triggered the issue.
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or traceback
+      description: Remove private paths, credentials, and dataset details before posting.
+      render: text
+  - type: textarea
+    id: dataset_config
+    attributes:
+      label: Dataset or config assumptions
+      description: Describe dataset availability, config file used, and any local path adaptation.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Pre-checks
+      options:
+        - label: I ran `python examples/quick_smoke_check.py`.
+        - label: I ran `python tools/validate_config.py --config configs/example_dataset.yaml`.
+        - label: I removed private data, tokens, and sensitive paths from this report.

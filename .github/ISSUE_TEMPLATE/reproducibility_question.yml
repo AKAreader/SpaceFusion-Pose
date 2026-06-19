@@ -1,0 +1,62 @@
+name: Reproducibility question
+description: Ask for help reproducing a route, configuration, or evaluation step.
+title: "[Reproducibility]: "
+labels:
+  - reproducibility
+body:
+  - type: dropdown
+    id: route
+    attributes:
+      label: Which route are you using?
+      options:
+        - Fusion-oriented scripts
+        - PlanA
+        - PlanD
+        - PlanA_RGB
+        - Evaluation utilities
+        - Data preparation
+        - Other / unsure
+    validations:
+      required: true
+  - type: input
+    id: config_file
+    attributes:
+      label: Config file
+      description: Name the config file used, if any.
+      placeholder: "configs/example_dataset.yaml or a local copy"
+  - type: textarea
+    id: dataset_status
+    attributes:
+      label: Dataset status
+      description: Describe whether paired visible/infrared images, annotations, and manifests are available locally.
+    validations:
+      required: true
+  - type: textarea
+    id: checkpoint_status
+    attributes:
+      label: Checkpoint status
+      description: Describe whether Git LFS checkpoints were pulled and whether local checkpoints are available.
+  - type: textarea
+    id: command
+    attributes:
+      label: Command
+      description: Paste the command you ran.
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: divergence
+    attributes:
+      label: Where does reproduction diverge?
+      description: Explain the error, missing path, metric mismatch, or unclear step.
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Pre-checks
+      options:
+        - label: I reviewed `docs/reproducibility.md`.
+        - label: I reviewed `docs/path_audit.md`.
+        - label: I ran the smoke check.
+        - label: I ran the config validator.

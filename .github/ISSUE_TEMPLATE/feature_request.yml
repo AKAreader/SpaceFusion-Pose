@@ -1,0 +1,46 @@
+name: Feature request
+description: Suggest a scoped improvement for the research codebase.
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Feature motivation
+      description: What research or maintenance need does this address?
+    validations:
+      required: true
+  - type: textarea
+    id: use_case
+    attributes:
+      label: Research use case
+      description: Explain how the feature supports fusion, pose evaluation, simulation data, configuration, or documentation.
+    validations:
+      required: true
+  - type: textarea
+    id: proposed
+    attributes:
+      label: Proposed behavior
+      description: Describe the expected behavior or interface.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Note simpler documentation-only, wrapper-based, or config-based alternatives if relevant.
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Scope
+      options:
+        - Documentation
+        - Configuration / examples
+        - Data preparation
+        - Training route
+        - Evaluation utility
+        - CI / maintenance
+        - Other
+    validations:
+      required: true

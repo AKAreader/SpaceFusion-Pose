@@ -255,7 +255,15 @@ Recommended cleanup work includes:
 
 ## Citation
 
-If you use this repository, please cite the repository or related papers when available. A formal `CITATION.cff` file should be added or maintained for citation metadata.
+If you use this repository, please cite the repository or related papers when available. Citation metadata is provided in [CITATION.cff](CITATION.cff).
+
+## Community and Maintenance
+
+- Citation metadata: [CITATION.cff](CITATION.cff)
+- Contribution guide: [CONTRIBUTING.md](CONTRIBUTING.md)
+- Security policy: [SECURITY.md](SECURITY.md)
+- Roadmap: [docs/roadmap.md](docs/roadmap.md)
+- Changelog: [CHANGELOG.md](CHANGELOG.md)
 
 ## License and Acknowledgements
 

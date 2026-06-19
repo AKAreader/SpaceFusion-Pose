@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Reproducibility and configuration notes
+    url: https://github.com/AKAreader/heart-fire/tree/seafusion-main/docs
+    about: Please review the documentation before opening an issue.
