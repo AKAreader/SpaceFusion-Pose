@@ -29,3 +29,7 @@ jobs:
       - name: Run smoke check
         run: |
           python examples/quick_smoke_check.py
+
+      - name: Validate example dataset config
+        run: |
+          python tools/validate_config.py --config configs/example_dataset.yaml

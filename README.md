@@ -68,6 +68,7 @@ docs/            Project notes and technical references.
 examples/        Lightweight manifest example and smoke-check script.
 .github/workflows/  Lightweight CI smoke check.
 model/           Model checkpoints tracked by Git LFS.
+tools/           Lightweight validation tools for configuration and repository checks.
 ```
 
 Useful documentation entry points:
@@ -126,6 +127,13 @@ Most workflows expect paired visible/infrared images and pose-related annotation
 
 Expected local dataset organization should be adapted through manifest files, script arguments, or configuration modules. Some older scripts still contain local absolute path assumptions, and future cleanup should move those paths into a `configs/` directory.
 
+Before running training scripts, copy or adapt `configs/example_dataset.yaml` and validate it with:
+
+```powershell
+python tools/validate_config.py --config configs/example_dataset.yaml
+python tools/validate_config.py --config configs/example_dataset.yaml --check-paths
+```
+
 ## Model Checkpoints
 
 Model checkpoints under `model/` are tracked with Git LFS.
@@ -157,6 +165,7 @@ Run the lightweight smoke check first:
 
 ```powershell
 python examples/quick_smoke_check.py
+python tools/validate_config.py --config configs/example_dataset.yaml
 ```
 
 ```powershell
@@ -225,6 +234,8 @@ PlanD/merge_csv_to_json.py
 This repository is currently organized as a research codebase. Some scripts may require local path adaptation, dataset manifests, or pretrained checkpoints.
 
 See [docs/reproducibility.md](docs/reproducibility.md) and [docs/path_audit.md](docs/path_audit.md) for the current reproducibility scope and known path assumptions.
+
+Configuration validation is a pre-flight check; it does not replace full experiment reproduction.
 
 Recommended cleanup work includes:
 

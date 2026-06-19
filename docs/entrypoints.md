@@ -70,6 +70,7 @@ For external users, start with:
 - `configs/runtime_safe.yaml`
 - `examples/example_manifest.json`
 - `examples/quick_smoke_check.py`
+- `tools/validate_config.py`
 
 Then read:
 
@@ -84,6 +85,25 @@ python examples/quick_smoke_check.py
 ```
 
 This check does not train models, download data, require a GPU, or verify scientific results.
+
+## Recommended Public Validation Tools
+
+Use the lightweight checks in this order:
+
+1. Run `examples/quick_smoke_check.py`.
+2. Run `tools/validate_config.py`.
+3. Review `docs/path_audit.md`.
+4. Only then adapt training or evaluation scripts.
+
+Example commands:
+
+```powershell
+python examples/quick_smoke_check.py
+python tools/validate_config.py --config configs/example_dataset.yaml
+python tools/validate_config.py --config configs/example_dataset.yaml --check-paths
+```
+
+The config validator checks schema and optional local path availability. It does not train models or replace manual dataset preparation.
 
 ## Notes
 

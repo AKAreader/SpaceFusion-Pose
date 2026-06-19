@@ -28,6 +28,17 @@ Important fields:
 
 The full dataset is not bundled in this repository.
 
+## Configuration Validation
+
+Validate the example dataset config before adapting training or evaluation scripts:
+
+```powershell
+python tools/validate_config.py --config configs/example_dataset.yaml
+python tools/validate_config.py --config configs/example_dataset.yaml --check-paths
+```
+
+The validator checks the structure of the configuration file. It does not run training and does not guarantee that every legacy script already consumes this config. Placeholder paths and missing local dataset paths are reported as warnings when `--check-paths` is enabled.
+
 ## `configs/runtime_safe.yaml`
 
 This file documents conservative local runtime settings.
