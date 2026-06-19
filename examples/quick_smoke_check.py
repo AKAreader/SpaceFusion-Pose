@@ -24,6 +24,8 @@ KEY_PATHS = [
     "requirements.txt",
     "configs/example_dataset.yaml",
     "configs/runtime_safe.yaml",
+    "docs/entrypoints.md",
+    "docs/path_audit.md",
     "model",
     "PlanA",
     "PlanD",

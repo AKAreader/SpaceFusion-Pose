@@ -33,3 +33,14 @@ python examples/quick_smoke_check.py
 ```
 
 The smoke check only verifies basic Python dependencies, key repository paths, and whether Git LFS pointer-style checkpoint files are visible. It does not train models, download data, require a GPU, or read large checkpoint tensors.
+
+## Related Documentation
+
+Before running training or evaluation scripts, review:
+
+- `docs/configuration.md`
+- `docs/reproducibility.md`
+- `docs/entrypoints.md`
+- `docs/path_audit.md`
+
+`example_manifest.json` is not a dataset. It is only a compact schema example for understanding how paired visible/infrared samples and pose annotations may be represented.

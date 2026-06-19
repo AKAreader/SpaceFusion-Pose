@@ -63,8 +63,20 @@ Figure/          Static figures used by the documentation and examples.
 PlanA/           Experimental pose-oriented fusion route.
 PlanA_RGB/       RGB-only pose route used for comparison and ablation-style work.
 PlanD/           Additional pose-oriented data processing, ROI, and dual-route experiments.
+configs/         Example dataset and conservative runtime configuration templates.
 docs/            Project notes and technical references.
+examples/        Lightweight manifest example and smoke-check script.
+.github/workflows/  Lightweight CI smoke check.
 model/           Model checkpoints tracked by Git LFS.
+```
+
+Useful documentation entry points:
+
+```text
+docs/entrypoints.md      Script map and recommended reading order.
+docs/path_audit.md       Local path assumption audit.
+docs/configuration.md    Configuration template guide.
+docs/reproducibility.md  Reproducibility notes and checklists.
 ```
 
 Ignored local directories include:
@@ -131,6 +143,22 @@ The checkpoints are research artifacts. They should not be interpreted as comple
 
 The following commands show common entry points, but they may require local dataset paths and annotation files to be configured first:
 
+Before running training scripts, review:
+
+```text
+configs/example_dataset.yaml
+configs/runtime_safe.yaml
+docs/configuration.md
+docs/entrypoints.md
+docs/path_audit.md
+```
+
+Run the lightweight smoke check first:
+
+```powershell
+python examples/quick_smoke_check.py
+```
+
 ```powershell
 python train_Cv2.py
 python pose_unified_table.py
@@ -145,6 +173,8 @@ python test.py --ir_dir ./test_imgs/ir --vi_dir ./test_imgs/vi --save_dir ./SeAF
 The `test_imgs/` and `SeAFusion/` directories are ignored by Git because they are local input/output directories.
 
 ## Training and Evaluation Entry Points
+
+See [docs/entrypoints.md](docs/entrypoints.md) for a more detailed entry-point map.
 
 Training scripts:
 
@@ -193,6 +223,8 @@ PlanD/merge_csv_to_json.py
 ## Reproducibility Notes
 
 This repository is currently organized as a research codebase. Some scripts may require local path adaptation, dataset manifests, or pretrained checkpoints.
+
+See [docs/reproducibility.md](docs/reproducibility.md) and [docs/path_audit.md](docs/path_audit.md) for the current reproducibility scope and known path assumptions.
 
 Recommended cleanup work includes:
 

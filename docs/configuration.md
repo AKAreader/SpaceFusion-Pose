@@ -6,6 +6,8 @@ This repository is a research codebase assembled from fusion, pose-estimation, a
 
 The goal of the `configs/` directory is to make local paths and runtime assumptions visible before running training or evaluation.
 
+The current templates are a recommended direction for new work. They do not mean that every historical script has already been converted to YAML-based configuration. For a map of current entry points, see `docs/entrypoints.md`. For a path-specific audit, see `docs/path_audit.md`.
+
 ## `configs/example_dataset.yaml`
 
 This file is a dataset template. It should be copied or edited for a local machine before running experiments.
@@ -86,4 +88,6 @@ Most users should review and update:
 - image size settings,
 - runtime worker and batch-size settings.
 
-Configuration templates are intended to make experiments easier to reproduce, but they do not guarantee one-command reproduction of all research runs.
+Configuration templates are intended to make experiments easier to reproduce, but they do not guarantee full reproduction of all research runs.
+
+Before selecting a script to run, review `docs/entrypoints.md` to understand which scripts are primary routes and which are historical or analysis utilities.
