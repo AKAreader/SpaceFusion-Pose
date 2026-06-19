@@ -1,0 +1,31 @@
+name: Smoke Check
+
+on:
+  push:
+    branches:
+      - seafusion-main
+  pull_request:
+    branches:
+      - seafusion-main
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.8"
+
+      - name: Install lightweight dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install numpy opencv-python-headless Pillow matplotlib pandas scipy scikit-image tqdm PyYAML openpyxl tensorboard natsort
+
+      - name: Run smoke check
+        run: |
+          python examples/quick_smoke_check.py

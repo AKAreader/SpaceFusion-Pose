@@ -1,0 +1,33 @@
+# Example dataset configuration for local RGB/IR spacecraft fusion experiments.
+# This file is a template. Replace all placeholder paths with your local paths.
+
+dataset:
+  name: "example_spacecraft_rgb_ir"
+  root: "PATH/TO/YOUR/DATASET_ROOT"
+  visible_dir: "PATH/TO/VISIBLE_RGB_IMAGES"
+  infrared_dir: "PATH/TO/INFRARED_IMAGES"
+  annotation_file: "PATH/TO/POSE_ANNOTATIONS.xlsx"
+  manifest_file: "PATH/TO/MANIFEST.csv"
+
+image:
+  height: 1024
+  width: 1024
+  visible_channels: 3
+  infrared_channels: 1
+
+pose:
+  representation: "quaternion"
+  fields:
+    w: "卫星四元数_w"
+    x: "卫星四元数_x"
+    y: "卫星四元数_y"
+    z: "卫星四元数_z"
+
+split:
+  train_ratio: 0.9
+  val_ratio: 0.1
+  random_seed: 42
+
+notes:
+  - "The full dataset is not bundled in this repository."
+  - "Update this template before running training or evaluation scripts."

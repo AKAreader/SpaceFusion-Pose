@@ -1,0 +1,26 @@
+# Conservative runtime settings for local development and debugging.
+# These settings are intended for stability, especially on Windows.
+
+runtime:
+  safe_runtime: true
+  num_workers: 0
+  pin_memory: false
+  non_blocking: false
+  cudnn_benchmark: false
+  deterministic: true
+
+training:
+  batch_size: 1
+  accum_steps: 8
+  grad_clip: 1.0
+
+hardware_notes:
+  tested_local_environment:
+    os: "Windows"
+    python: "3.8"
+    pytorch: "2.4.1"
+  gpu:
+    example: "NVIDIA RTX 4080 Super"
+  warning:
+    - "Adjust CUDA and PyTorch versions according to your machine."
+    - "Large-scale training requires the local dataset and sufficient GPU memory."

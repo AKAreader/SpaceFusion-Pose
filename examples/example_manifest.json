@@ -1,0 +1,24 @@
+{
+  "description": "Example manifest schema for paired visible/infrared spacecraft samples.",
+  "samples": [
+    {
+      "pair_id": "0001",
+      "visible": "visible/0001.png",
+      "infrared": "infrared/0001.png",
+      "pose": {
+        "qw": 1.0,
+        "qx": 0.0,
+        "qy": 0.0,
+        "qz": 0.0
+      },
+      "metadata": {
+        "object_class": "CubeSat",
+        "phase_angle_deg": 45
+      }
+    }
+  ],
+  "notes": [
+    "This file is a schema example only.",
+    "It does not contain the full dataset."
+  ]
+}
