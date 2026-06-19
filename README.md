@@ -1,98 +1,234 @@
+# Spacecraft Infrared-Visible Fusion and Pose Estimation Research Framework
 
+## Overview
 
-#  SeAFusion
-## ✨ News  
-- **[2025-09-18]** Our paper *[ControlFusion: A Controllable Image Fusion Framework with Language-Vision Degradation Prompts](https://arxiv.org/pdf/2503.23356?)* has been officially accepted by **Advances in Neural Information Processing Systems (NeurIPS 2025)**! [[Paper](https://arxiv.org/pdf/2503.23356?)] [[Code](https://github.com/Linfeng-Tang/ControlFusion)]  
+This repository provides a research-oriented framework for visible/infrared spacecraft perception, image fusion, and pose-oriented evaluation.
 
-- **[2025-09-10]** Our paper *[Mask-DiFuser: A Masked Diffusion Model for Unified Unsupervised Image Fusion](https://ieeexplore.ieee.org/document/11162636)* has been officially accepted by **IEEE Transactions on Pattern Analysis and Machine Intelligence (IEEE TPAMI)**! [[Paper](https://ieeexplore.ieee.org/document/11162636)] [[Code](https://github.com/Linfeng-Tang/Mask-DiFuser)]  
+Spacecraft pose estimation is important for non-cooperative target perception, rendezvous, proximity operations, and on-orbit servicing. However, real multi-modal spacecraft data are difficult to acquire and annotate. Visible images provide texture and color structure under favorable illumination, while infrared images provide complementary thermal and silhouette cues under challenging illumination. This project explores a simulation-to-learning workflow that uses visible/infrared synthetic data and deep learning models for fusion and pose-related research.
 
-- **[2025-03-15]** Our paper *[C2RF: Bridging Multi-modal Image Registration and Fusion via Commonality Mining and Contrastive Learning](https://github.com/Linfeng-Tang/C2RF)* has been officially accepted by the **International Journal of Computer Vision (IJCV)**! [[Paper](https://link.springer.com/article/10.1007/s11263-025-02427-1)] [[Code](https://github.com/Linfeng-Tang/C2RF)]  
+In short, this repository is intended as:
 
-- **[2025-02-11]** We released a large-scale dataset for infrared and visible video fusion: *[M2VD: Multi-modal Multi-scene Video Dataset](https://github.com/Linfeng-Tang/M2VD)*.  
+> A simulation-to-deep-learning research framework for infrared-visible spacecraft perception and pose-oriented fusion.
 
-- **[2024-11-28]** *SeAFusion* won the **Information Fusion Best Paper Award 2024**! 
+It should be treated as a research prototype, not as validated spacecraft navigation software.
 
-This is official Pytorch implementation of "[Image fusion in the loop of high-level vision tasks: A semantic-aware real-time infrared and visible image fusion network](https://www.sciencedirect.com/science/article/pii/S1566253521002542)"
-## Welcome to follow the further work of our SeAFusion：[Rethinking the necessity of image fusion in high-level vision tasks: A practical infrared and visible image fusion network based on progressive semantic injection and scene fidelity](https://github.com/Linfeng-Tang/PSFusion) 【[Paper](https://www.sciencedirect.com/science/article/pii/S1566253523001860)】, 【[Code](https://github.com/Linfeng-Tang/PSFusion)】.
-## Framework
-![The overall framework of the proposed semantic-aware infrared and visible image fusion algorithm.](https://github.com/Linfeng-Tang/SeAFusion/blob/main/Figure/Framework.png)
-The overall framework of the proposed semantic-aware infrared and visible image fusion algorithm.
+## Motivation
 
-## Network Architecture
-![The architecture of the real-time infrared and visible image fusion network based on gradient residual dense block.](https://github.com/Linfeng-Tang/SeAFusion/blob/main/Figure/Network.png)
-The architecture of the real-time infrared and visible image fusion network based on gradient residual dense block.
+Infrared-visible image fusion is often evaluated as a visual enhancement problem. In spacecraft perception, fusion can also support downstream pose-aware tasks: maintaining object structure, silhouette information, and illumination-robust cues that are useful for pose estimation and analysis.
 
-## To Train
+This project studies that direction through a practical research codebase:
 
-Run ```**CUDA_VISIBLE_DEVICES=0 python train.py**``` to train your model.
-The training data are selected from the MFNet dataset. For convenient training, users can download the training dataset from [here](https://pan.baidu.com/s/1xueuKYvYp7uPObzvywdgyA), in which the extraction code is: **bvfl**.
+- synthetic visible/infrared spacecraft-style data organization,
+- fusion model training and inference utilities,
+- pose-oriented training and evaluation scripts,
+- qualitative and quantitative analysis tools.
 
-The MFNet dataset can be downloaded via the following link: [https://drive.google.com/drive/folders/18BQFWRfhXzSuMloUmtiBRFrr6NSrf8Fw](https://drive.google.com/drive/folders/18BQFWRfhXzSuMloUmtiBRFrr6NSrf8Fw).
+## Key Features
 
-The MFNet project address is: [https://www.mi.t.u-tokyo.ac.jp/static/projects/mil_multispectral/](https://www.mi.t.u-tokyo.ac.jp/static/projects/mil_multispectral/).
-## To Test
+- Visible/infrared spacecraft image fusion research code.
+- Blender-style synthetic data workflow support through local manifests and preprocessing utilities.
+- Pose-aware training and evaluation utilities.
+- Multiple experimental routes, including `PlanA`, `PlanD`, and `PlanA_RGB`.
+- Git LFS managed model checkpoints under `model/`.
+- Evaluation utilities for fusion metrics and pose-related analysis.
+- Technical notes in `docs/`, including SoPD-Net implementation references.
 
-Run ```**CUDA_VISIBLE_DEVICES=0 python test.py**``` to test the model.
+Some scripts are experimental utilities rather than polished command-line products. Paths, manifests, and dataset locations may need local adaptation before use.
 
-## For quantitative evaluation
-For quantitative assessments, please follow the instruction to modify and run **. /Evaluation/test_evaluation.m** .
+## Research Pipeline
 
-## Recommended Environment
-
- - [ ] torch  1.7.1
- - [ ] torchvision 0.8.2
- - [ ] numpy 1.19.2
- - [ ] pillow  8.0.1
-
-## Fusion Example
-![Qualitative comparison of SeAFusion with 9 state-of-the-art methods on 00633D image from the MFNet dataset.](https://github.com/Linfeng-Tang/SeAFusion/blob/main/Figure/00633D.png)
-Qualitative comparison of SeAFusion with 9 state-of-the-art methods on 00633D image from the MFNet dataset.
-
-## Segmentation Results
-![Segmentation results for infrared, visible and fused images from the MFNet dataset.](https://github.com/Linfeng-Tang/SeAFusion/blob/main/Figure/Segmentation1.png)
-Segmentation results for infrared, visible and fused images from the MFNet dataset. The segmentation models are re-trained on infrared, visible and fused image sets.
-Each two rows represent a scene.
-
-![Segmentation results for infrared, visible and fused images from the MFNet dataset.](https://github.com/Linfeng-Tang/SeAFusion/blob/main/Figure/Segmentation_Deeplab.png)
-Segmentation results for infrared, visible and fused images from the MFNet dataset. The segmentation model is Deeplabv3+, pre-trained on the Cityscapes dataset. Each
-two rows represent a scene.
-
-## Detection Results
-![Object detection results for infrared, visible and fused images from the MFNet dataset.](https://github.com/Linfeng-Tang/SeAFusion/blob/main/Figure/Detection.png)
-Object detection results for infrared, visible and fused images from the MFNet dataset. The YOLOv5 detector, pre-trained on the Coco dataset is deployed to achieve
-object detection.
-
-
-## If this work is helpful to you, please cite it as：
-```
-@article{Tang2024Mask-DiFuser,
-  author={Tang, Linfeng and Li, Chunyu and Ma, Jiayi},
-  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence}, 
-  title={Mask-DiFuser: A Masked Diffusion Model for Unified Unsupervised Image Fusion}, 
-  year={2025},
-  volume={},
-  number={},
-  pages={1-18},
- }
+```text
+Synthetic spacecraft scene generation
+        |
+        v
+RGB/IR paired data organization
+        |
+        v
+Infrared-visible fusion model training
+        |
+        v
+Pose-oriented supervision / evaluation
+        |
+        v
+Qualitative and quantitative analysis
 ```
 
+The current repository focuses on the learning, fusion, evaluation, and analysis side of this workflow. Full local datasets and generated experiment outputs are not bundled in the repository.
+
+## Repository Structure
+
+```text
+Evaluation/      MATLAB-style fusion metric evaluation utilities.
+Figure/          Static figures used by the documentation and examples.
+PlanA/           Experimental pose-oriented fusion route.
+PlanA_RGB/       RGB-only pose route used for comparison and ablation-style work.
+PlanD/           Additional pose-oriented data processing, ROI, and dual-route experiments.
+docs/            Project notes and technical references.
+model/           Model checkpoints tracked by Git LFS.
 ```
-@article{Tang2024C2RF,
-	title={C2RF: Bridging Multi-modal Image Registration and Fusion via Commonality Mining and Contrastive Learning}, 
-	author={Tang, Linfeng and Yan, Qinglong and Xiang, Xinyu and Fang, Leyuan and Ma, Jiayi},
-	journal={International Journal of Computer Vision}, 
-	pages={5262--5280},
-	volume={133},
-	year={2025},
-}
+
+Ignored local directories include:
+
+```text
+datasets/
+runs_*/
+outputs/
+test_outputs/
+test_imgs/
+SeAFusion/
+PlanA/runs_pose*/
+PlanD/runs_pose*/
+PlanA_RGB/runs_pose_rgb/
 ```
+
+These directories usually contain local datasets, generated outputs, temporary images, or training results. They are intentionally excluded from normal Git tracking.
+
+## Installation
+
+A conservative local setup is:
+
+```powershell
+conda create -n seafusion-pose python=3.8
+conda activate seafusion-pose
+pip install -r requirements.txt
 ```
+
+Install PyTorch separately according to your CUDA environment:
+
+```text
+https://pytorch.org/get-started/locally/
+```
+
+Local development has used Windows / PowerShell and Python 3.8 style environments. PyTorch 2.4.1 has been used in local development, but the exact PyTorch build should be selected for the target CUDA and driver setup.
+
+## Data Preparation
+
+The full simulation dataset is not bundled in this repository.
+
+Most workflows expect paired visible/infrared images and pose-related annotations. Depending on the script, these may be provided through:
+
+- RGB and IR image directories,
+- JSON manifest files,
+- CSV or Excel annotation tables,
+- locally generated ROI or saliency metadata.
+
+Expected local dataset organization should be adapted through manifest files, script arguments, or configuration modules. Some older scripts still contain local absolute path assumptions, and future cleanup should move those paths into a `configs/` directory.
+
+## Model Checkpoints
+
+Model checkpoints under `model/` are tracked with Git LFS.
+
+After cloning the repository, run:
+
+```powershell
+git lfs install
+git lfs pull
+```
+
+The checkpoints are research artifacts. They should not be interpreted as complete validation evidence for a deployment system.
+
+## Quick Start
+
+The following commands show common entry points, but they may require local dataset paths and annotation files to be configured first:
+
+```powershell
+python train_Cv2.py
+python pose_unified_table.py
+```
+
+For basic fusion inference with the original-style SeAFusion entry point:
+
+```powershell
+python test.py --ir_dir ./test_imgs/ir --vi_dir ./test_imgs/vi --save_dir ./SeAFusion
+```
+
+The `test_imgs/` and `SeAFusion/` directories are ignored by Git because they are local input/output directories.
+
+## Training and Evaluation Entry Points
+
+Training scripts:
+
+```text
+train.py
+train_A.py
+train_B_gate.py
+train_C.py
+train_Cv2.py
+PlanA/train_pose.py
+PlanD/train_pose.py
+PlanA_RGB/train_pose.py
+```
+
+Testing and inference scripts:
+
+```text
+test.py
+PlanA/test_pose.py
+PlanD/test_pose.py
+PlanA_RGB/test_pose.py
+infer_routeA.py
+```
+
+Evaluation and reporting scripts:
+
+```text
+evaluate.py
+pose_unified_table.py
+fire_domain_pose_train_eval.py
+hard_subset_pose_table.py
+Evaluation/test_evaluation.m
+```
+
+Data preparation and analysis utilities:
+
+```text
+build_fire_manifests.py
+make_map.py
+PlanD/build_map.py
+PlanD/build_roi.py
+PlanD/generate_dataset_saliency.py
+PlanD/merge_csv_to_json.py
+```
+
+## Reproducibility Notes
+
+This repository is currently organized as a research codebase. Some scripts may require local path adaptation, dataset manifests, or pretrained checkpoints.
+
+Recommended cleanup work includes:
+
+- moving hard-coded local paths into configuration files,
+- adding small sample manifests,
+- documenting expected annotation schemas,
+- adding smoke tests for imports and lightweight inference,
+- separating stable entry points from exploratory scripts.
+
+## Limitations
+
+- The full dataset is not bundled.
+- Some scripts may contain local path assumptions.
+- Results depend on local simulation settings and annotation consistency.
+- Some directories in the working tree may contain ignored local experiments or generated images.
+- This is a research prototype and should not be interpreted as a validated spacecraft navigation system.
+
+## Citation
+
+If you use this repository, please cite the repository or related papers when available. A formal `CITATION.cff` file should be added or maintained for citation metadata.
+
+## License and Acknowledgements
+
+This repository currently includes an MIT License file.
+
+Parts of this codebase are adapted from or inspired by prior infrared-visible image fusion research codebases, including SeAFusion-style training and evaluation components. Please also respect the licenses and citations of the upstream projects where applicable.
+
+The original SeAFusion work referenced by the inherited code is:
+
+```bibtex
 @article{TANG202228SeAFusion,
-title = {Image fusion in the loop of high-level vision tasks: A semantic-aware real-time infrared and visible image fusion network},
-journal = {Information Fusion},
-volume = {82},
-pages = {28-42},
-year = {2022},
-issn = {1566-2535}
+  title = {Image fusion in the loop of high-level vision tasks: A semantic-aware real-time infrared and visible image fusion network},
+  journal = {Information Fusion},
+  volume = {82},
+  pages = {28-42},
+  year = {2022},
+  issn = {1566-2535}
 }
 ```

@@ -1,0 +1,15 @@
+# Install PyTorch and torchvision separately according to your CUDA environment:
+# https://pytorch.org/get-started/locally/
+
+numpy
+opencv-python
+Pillow
+matplotlib
+pandas
+scipy
+scikit-image
+tqdm
+PyYAML
+openpyxl
+tensorboard
+natsort
