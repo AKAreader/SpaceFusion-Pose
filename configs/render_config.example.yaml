@@ -1,0 +1,24 @@
+﻿# Example rendering configuration template.
+# This is a placeholder for future Blender rendering scripts.
+
+scene:
+  blender_file: "assets/blender/EXAMPLE.blend"
+  output_root: "outputs/rendered_samples"
+
+render:
+  modalities:
+    - visible
+    - infrared
+  resolution:
+    width: 1024
+    height: 1024
+  samples: 64
+
+camera:
+  pose_source: "manual_or_scripted"
+  export_pose_annotations: true
+
+notes:
+  - "This config is a template only."
+  - "Rendering scripts are not fully provided yet."
+  - "Update paths and Blender settings before use."
