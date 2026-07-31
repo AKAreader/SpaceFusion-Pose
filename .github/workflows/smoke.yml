@@ -3,10 +3,11 @@ name: Smoke Check
 on:
   push:
     branches:
-      - seafusion-main
+      - spacefusion-pose
   pull_request:
     branches:
-      - seafusion-main
+      - spacefusion-pose
+  workflow_dispatch:
 
 jobs:
   smoke:
