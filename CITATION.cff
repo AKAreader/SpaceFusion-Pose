@@ -5,8 +5,8 @@ title: "Spacecraft Infrared-Visible Fusion and Pose Estimation Research Framewor
 authors:
   - family-names: "Zhang"
     given-names: "Yuanbin"
-repository-code: "https://github.com/AKAreader/heart-fire"
-url: "https://github.com/AKAreader/heart-fire/tree/seafusion-main"
+repository-code: "https://github.com/AKAreader/SpaceFusion-Pose"
+url: "https://github.com/AKAreader/SpaceFusion-Pose"
 abstract: "A research-oriented framework for infrared-visible spacecraft perception, simulation-driven fusion, and pose-oriented evaluation."
 keywords:
   - infrared-visible fusion
