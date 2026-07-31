@@ -149,7 +149,32 @@ The checkpoints are research artifacts. They should not be interpreted as comple
 
 ## Quick Start
 
-The following commands show common entry points, but they may require local dataset paths and annotation files to be configured first:
+### Zero-data CPU demo
+
+Run a deterministic public demo without downloading datasets, checkpoints, or PyTorch:
+
+```powershell
+python examples/quick_start_demo.py
+```
+
+The command generates synthetic aligned RGB/IR inputs, a transparent baseline fusion preview, a manifest, a resolved dataset configuration, and a run summary under `outputs/quick_start/`.
+
+This output is not SoPD-Net or SeAFusion model inference. It is a public repository and data-contract demonstration.
+
+See [docs/quick_start.md](docs/quick_start.md) for generated files, CLI options, and limitations.
+
+### Repository checks
+
+These commands perform lightweight repository and configuration checks. They do not train models or download data:
+
+```powershell
+python examples/quick_smoke_check.py
+python tools/validate_config.py --config configs/example_dataset.yaml
+```
+
+### Local research entry points
+
+The following commands are research entry points and may require local dataset paths, annotation files, and checkpoints to be configured first:
 
 Before running training scripts, review:
 
@@ -161,23 +186,14 @@ docs/entrypoints.md
 docs/path_audit.md
 ```
 
-Run the lightweight smoke check first:
-
-```powershell
-python examples/quick_smoke_check.py
-python tools/validate_config.py --config configs/example_dataset.yaml
-```
+Example fusion and pose-related entry points:
 
 ```powershell
 python train_Cv2.py
 python pose_unified_table.py
 ```
 
-For basic fusion inference with the original-style SeAFusion entry point:
-
-```powershell
-python test.py --ir_dir ./test_imgs/ir --vi_dir ./test_imgs/vi --save_dir ./SeAFusion
-```
+Commands may require local dataset paths, annotation files, and checkpoints to be configured first.
 
 The `test_imgs/` and `SeAFusion/` directories are ignored by Git because they are local input/output directories.
 

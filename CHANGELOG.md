@@ -6,6 +6,7 @@ All notable changes to this research repository will be documented here.
 
 ### Added
 
+- Deterministic zero-data CPU quick-start demo with synthetic RGB/IR inputs, manifest generation, configuration validation, baseline preview, tests, and CI coverage.
 - Research-oriented README, model card, dataset card, and documentation.
 - Configuration templates under `configs/`.
 - Example manifest and smoke check under `examples/`.
