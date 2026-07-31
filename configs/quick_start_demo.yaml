@@ -1,0 +1,22 @@
+# Public zero-data CPU quick-start configuration.
+# This demo generates deterministic synthetic RGB/IR inputs and a baseline preview.
+# It does not run SoPD-Net, SeAFusion, or any trained model.
+
+demo:
+  output_dir: "outputs/quick_start"
+  image_size: 256
+  seed: 42
+
+baseline:
+  visible_luminance_weight: 0.60
+  infrared_weight: 0.40
+
+sample:
+  pair_id: "0001"
+  object_class: "SyntheticDemo"
+  phase_angle_deg: 45
+  pose:
+    qw: 1.0
+    qx: 0.0
+    qy: 0.0
+    qz: 0.0

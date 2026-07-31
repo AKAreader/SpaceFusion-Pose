@@ -27,6 +27,18 @@ jobs:
           python -m pip install --upgrade pip
           pip install numpy opencv-python-headless Pillow matplotlib pandas scipy scikit-image tqdm PyYAML openpyxl tensorboard natsort
 
+      - name: Run public quick-start demo
+        run: |
+          python examples/quick_start_demo.py \
+            --config configs/quick_start_demo.yaml \
+            --output-dir outputs/ci_quick_start \
+            --size 128 \
+            --seed 42
+
+      - name: Run quick-start tests
+        run: |
+          python -m unittest tests.test_quick_start_demo
+
       - name: Run smoke check
         run: |
           python examples/quick_smoke_check.py
