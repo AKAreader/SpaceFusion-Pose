@@ -280,6 +280,8 @@ If you use this repository, please cite the repository or related papers when av
 - Security policy: [SECURITY.md](SECURITY.md)
 - Roadmap: [docs/roadmap.md](docs/roadmap.md)
 - Changelog: [CHANGELOG.md](CHANGELOG.md)
+- Release notes: [v0.1.0](docs/releases/v0.1.0.md)
+- GitHub releases: [Releases](https://github.com/AKAreader/SpaceFusion-Pose/releases)
 
 ## License and Acknowledgements
 

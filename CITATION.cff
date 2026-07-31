@@ -2,6 +2,8 @@ cff-version: 1.2.0
 message: "If you use this research codebase, please cite the repository and related papers when available."
 type: software
 title: "Spacecraft Infrared-Visible Fusion and Pose Estimation Research Framework"
+version: "0.1.0"
+date-released: 2026-08-01
 authors:
   - family-names: "Zhang"
     given-names: "Yuanbin"
